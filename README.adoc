@@ -1,0 +1,15 @@
+=Codename One IAP Demo Server
+
+This project is a demo project created to demonstrate in-app-purchase subscriptions in the iTunes and Google Play stores.  It was created to accompany a blog post on the topic.
+
+More documentation to come.
+
+== Dependencies
+
+. https://github.com/shannah/cn1-iap-validator[CN1 IAP Validator] - A library for validating app store receipts.
+. https://github.com/shannah/cn1-compatlib[cn1-compatlib] - Contains a subset of the Codename One API for use in server projects.
+
+== Client App
+
+The client app source that interacted with this REST service can be seen https://gist.github.com/shannah/b61b9b6b35ea0eac923a54163f5d4deb[here].
+
