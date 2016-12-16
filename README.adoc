@@ -8,7 +8,7 @@ This project is a demo project created to demonstrate in-app-purchase subscripti
 $ git clone https://github.com/shannah/cn1-iap-demo-server
 $ cd cn1-iap-demo-server
 $ ant install-deps
------
+----
 
 NOTE: This the "install-deps" ant task will download a couple of dependent projects (https://github.com/shannah/cn1-iap-validator[CN1 IAP Validator], and https://github.com/shannah/cn1-compatlib[cn1-compatlib])into the "dependencies" directory, then build/install them in your local maven repo.
 
