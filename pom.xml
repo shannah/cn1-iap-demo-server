@@ -12,6 +12,8 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <cn1.compatlib.version>0.0.1-SNAPSHOT</cn1.compatlib.version>
+        <cn1.iap.validator.version>1.0-SNAPSHOT</cn1.iap.validator.version>
     </properties>
     
     <dependencies>
@@ -36,13 +38,13 @@
         <dependency>
             <groupId>com.codename1</groupId>
             <artifactId>cn1-compatlib</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version${cn1.compatlib.version}</version>
            
         </dependency>
         <dependency>
             <groupId>com.codename1</groupId>
             <artifactId>cn1-iap-validator</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${cn1.iap.validator.version}</version>
         </dependency>
     </dependencies>
 
