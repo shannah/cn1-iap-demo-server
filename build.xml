@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="IAPServer" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+    <path id="maven-ant-tasks.classpath" path="lib/maven-ant-tasks-2.1.3.jar" />
+    <typedef resource="org/apache/maven/artifact/ant/antlib.xml"
+             uri="antlib:org.apache.maven.artifact.ant"
+             classpathref="maven-ant-tasks.classpath" />
+	<description>A demo server project for In-App Purchase In Codename One</description>
+	
+	<target name="install-deps" description="Install dependencies">
+	    <mkdir dir="dependencies"/>
+	    <exec dir="dependencies" executable="git">
+	        <arg value="clone"/>
+	        <arg value="https://github.com/shannah/cn1-compatlib"/>
+	    </exec>
+	    <exec dir="dependencies/cn1-compatlib" executable="git">
+	        <arg value="pull"/>
+	        <arg value="origin"/>
+	        <arg value="master"/>
+	    </exec>
+	    <exec dir="dependencies" executable="git">
+	        <arg value="clone"/>
+	        <arg value="https://github.com/shannah/cn1-iap-validator"/>
+	    </exec>
+	    <exec dir="dependencies/cn1-iap-validator" executable="git">
+	        <arg value="pull"/>
+	        <arg value="origin"/>
+	        <arg value="master"/>
+	    </exec>
+	    <ant dir="dependencies/cn1-compatlib" target="jar"/>
+	    <exec dir="dependencies/cn1-iap-validator" executable="mvn" failonerror="true">
+	        <arg value="install"/>
+	    </exec>
+	    
+	    <!-- Set the correct version number in the pom file -->
+	    
+	    
+	    <artifact:pom id="Cn1CompatlibPom" file="dependencies/cn1-compatlib/cn1-compatlib-pom.xml"/>
+	    <artifact:pom id="IAPValidatorPom" file="dependencies/cn1-iap-validator/pom.xml"/>
+	    <echo message="cn1-iap-validator version is ${IAPValidatorPom.version}"/>
+	    <echo message="cn1-compatlib version is ${Cn1CompatlibPom.version}"/>
+	    <replaceregexp file="pom.xml" 
+	        match="&lt;cn1.iap.validator.version&gt;(.*)&lt;/cn1.iap.validator.version&gt;"
+	        replace="&lt;cn1.iap.validator.version&gt;${IAPValidatorPom.version}&lt;/cn1.iap.validator.version&gt;"
+	        />
+	    <replaceregexp file="pom.xml" 
+	        match="&lt;cn1.compatlib.version&gt;(.*)&lt;/cn1.compatlib.version&gt;"
+	        replace="&lt;cn1.compatlib.version&gt;${Cn1CompatlibPom.version}&lt;/cn1.compatlib.version&gt;"
+	        />
+	    
+	    
+	    
+	</target>
+</project>

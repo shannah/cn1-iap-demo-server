@@ -2,12 +2,16 @@
 
 This project is a demo project created to demonstrate in-app-purchase subscriptions in the iTunes and Google Play stores.  It was created to accompany a blog post on the topic.
 
-More documentation to come.
+== Installation
 
-== Dependencies
+---
+$ git clone https://github.com/shannah/cn1-iap-demo-server
+$ cd cn1-iap-demo-server
+$ ant install-deps
+---
 
-. https://github.com/shannah/cn1-iap-validator[CN1 IAP Validator] - A library for validating app store receipts.
-. https://github.com/shannah/cn1-compatlib[cn1-compatlib] - Contains a subset of the Codename One API for use in server projects.
+NOTE: This the "install-deps" ant task will download a couple of dependent projects (https://github.com/shannah/cn1-iap-validator[CN1 IAP Validator], and https://github.com/shannah/cn1-compatlib[cn1-compatlib])into the "dependencies" directory, then build/install them in your local maven repo.
+
 
 == Client App
 
